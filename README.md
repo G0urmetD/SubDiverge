@@ -28,3 +28,13 @@ options:
                         Domain to scan
 
 ```
+
+## Known Issues
+- Missing faker_useragent module
+```bash
+pip3 install fake_useragent
+```
+- Missing subfinder
+```bash
+sudo apt install subfinder -y
+```
