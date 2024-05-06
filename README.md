@@ -1,23 +1,23 @@
 # SubDiverge
 
 ## Description
-Another subdomain tool with HTTP/HTTPS probe. The Tool is designed to find subdomains with subfinder (fast) and probe the subdomains with HTTP and HTTPS. Everything will printed out nicely formatted and colorized.
+Another subdomain tool with HTTP/HTTPS probe. The Tool is designed to find subdomains with subfinder (fast), assetfinder and probe the subdomains with HTTP and HTTPS. Everything will printed out nicely formatted and colorized.
 
 ## Help
-```bash
- _____       _    ______ _                          
-/  ___|     | |   |  _  (_)                         
-\ `--. _   _| |__ | | | |___   _____ _ __ __ _  ___ 
- `--. \ | | | '_ \| | | | \ \ / / _ \ '__/ _` |/ _  |
-/\__/ / |_| | |_) \| |/ /| |\ V /  __/ | | (_| |  __/
-\____/ \__,_|_.__/|___/ |_| \_/ \___|_|  \__, |\___|
-                                          __/ |     
-                                         |___/      
-
-
-
-[INFO] Author: G0urmetD (403 - Forbidden)
-[INFO] Version: 2.3.3
+```bash                                                                                                        
+      _____       _    ______ _                                                                          
+     /  ___|     | |   |  _  (_)                                                                         
+     \ `--. _   _| |__ | | | |___   _____ _ __ __ _  ___                                                 
+    `--. \ | | | '_ \| | | | \ \ / / _ \ '__/ _` |/ _  |                                                 
+    /\__/ / |_| | |_) \| |/ /| |\ V /  __/ | | (_||  __/                                                 
+    \____/ \__,_|_.__/|___/ |_| \_/ \___|_|  \__, |\___|                                                 
+                                            __/ |                                                        
+                                            |___/                                                        
+                                                                                                         
+                                                                                                         
+                                                                                                         
+[INFO] Author: G0urmetD (G0urmet)
+[INFO] Version: 3.5.2
 usage: subDiverge.py [-h] -d DOMAIN
 
 Scan for subdomains and probe HTTP status codes.
@@ -30,10 +30,6 @@ options:
 ```
 
 ## Known Issues
-- Missing faker_useragent module
-```bash
-pip3 install fake_useragent
-```
 - Missing subfinder
 ```bash
 sudo apt install subfinder -y
