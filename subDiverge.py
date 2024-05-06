@@ -29,7 +29,7 @@ def main():
     """
     print(Fore.CYAN + banner + Style.RESET_ALL)
     print(f"{Fore.YELLOW}[INFO]{Style.RESET_ALL} Author: G0urmetD (403 - Forbidden)")
-    print(f"{Fore.YELLOW}[INFO]{Style.RESET_ALL} Version: 3.1")
+    print(f"{Fore.YELLOW}[INFO]{Style.RESET_ALL} Version: 3.5.2")
 
     # script arguments/parameters
     parser = argparse.ArgumentParser(description='Scan for subdomains and probe HTTP status codes.')
