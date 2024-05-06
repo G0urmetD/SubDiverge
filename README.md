@@ -1,7 +1,7 @@
 # SubDiverge
 
 ## Description
-Another subdomain tool with HTTP/HTTPS probe. The Tool is designed to find subdomains with subfinder (fast) and probe the subdomains with HTTP and HTTPS. Everything will printed out nicely formatted and colorized.
+Another subdomain tool with HTTP/HTTPS probe. The Tool is designed to find subdomains with subfinder (fast), assetfinder and probe the subdomains with HTTP and HTTPS. Everything will printed out nicely formatted and colorized.
 
 ## Help
 ```bash
@@ -30,10 +30,6 @@ options:
 ```
 
 ## Known Issues
-- Missing faker_useragent module
-```bash
-pip3 install fake_useragent
-```
 - Missing subfinder
 ```bash
 sudo apt install subfinder -y
