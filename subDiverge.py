@@ -29,13 +29,18 @@ def main():
     """
     print(Fore.CYAN + banner + Style.RESET_ALL)
     print(f"{Fore.YELLOW}[INFO]{Style.RESET_ALL} Author: G0urmetD (G0urmet)")
-    print(f"{Fore.YELLOW}[INFO]{Style.RESET_ALL} Version: 3.5.2")
+    print(f"{Fore.YELLOW}[INFO]{Style.RESET_ALL} Version: 3.6")
 
     # script arguments/parameters
     parser = argparse.ArgumentParser(description='Scan for subdomains and probe HTTP status codes.')
     parser.add_argument('-d', '--domain', dest='domain', required=True, help='Domain to scan')
+    parser.add_argument('-p', '--probe' ,dest='probe', action='store_true', help='Enable HTTP probe')
+    parser.add_argument('-t', '--timeout', dest='timeout', type=int, default=3, help='Timeout for HTTP probe')
     args = parser.parse_args()
     domain = args.domain
+    probe_enabled = args.probe
+    timeout = args.timeout
+    takeover = args.takeover
 
     # start tool timer
     start_time = time.time()
@@ -69,16 +74,18 @@ def main():
     merge_subdomains("subs-subfinder.txt", "subs-assetfinder.txt", "subs-final.txt")
 
     print(f"=============================== {Fore.CYAN}[END]{Style.RESET_ALL} ===============================")
-    print(f"=============================== {Fore.CYAN}[HTTP/HTTPS PROBE]{Style.RESET_ALL} ===============================")
-    # loop through compared subdomain findings and run http/https probe & print out
-    # save accessible subdomains in .txt file
-    all_subdomains = read_subdomains_from_file("subs-final.txt")
-    print(f"{Fore.YELLOW}[INFO]{Style.RESET_ALL} I'm working on it, grab a coffee ...")
-    table_http, table_https = probe_subdomains(all_subdomains)
-    print(f"{Fore.MAGENTA}HTTP Probe:{Style.RESET_ALL}")
-    print(table_http)
-    print(f"\n{Fore.MAGENTA}HTTPS Probe:{Style.RESET_ALL}")
-    print(table_https)
+    
+    if probe_enabled:
+        print(f"=============================== {Fore.CYAN}[HTTP/HTTPS PROBE]{Style.RESET_ALL} ===============================")
+        # loop through compared subdomain findings and run http/https probe & print out
+        # save accessible subdomains in .txt file
+        all_subdomains = read_subdomains_from_file("subs-final.txt")
+        print(f"{Fore.YELLOW}[INFO]{Style.RESET_ALL} I'm working on it, grab a coffee ...")
+        table_http, table_https = probe_subdomains(all_subdomains, timeout=timeout)
+        print(f"{Fore.MAGENTA}HTTP Probe:{Style.RESET_ALL}")
+        print(table_http)
+        print(f"\n{Fore.MAGENTA}HTTPS Probe:{Style.RESET_ALL}")
+        print(table_https)
 
     # end tool timer & print out
     end_time = time.time()
