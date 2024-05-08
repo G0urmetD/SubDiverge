@@ -81,7 +81,7 @@ def probe_subdomains(subdomains, timeout):
             table_data_https.append(https_row)
 
     headers = [f"{Fore.MAGENTA}Time{Style.RESET_ALL}", f"{Fore.MAGENTA}Status{Style.RESET_ALL}", f"{Fore.MAGENTA}URL{Style.RESET_ALL}", f"{Fore.MAGENTA}IP Address{Style.RESET_ALL}"]
-    table_http = tabulate(table_data_http, headers=headers, tablefmt="grid")
-    table_https = tabulate(table_data_https, headers=headers, tablefmt="grid")
+    table_http = tabulate(table_data_http, headers=headers, tablefmt="rounded_outline")
+    table_https = tabulate(table_data_https, headers=headers, tablefmt="rounded_outline")
 
     return table_http, table_https
