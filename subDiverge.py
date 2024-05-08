@@ -40,7 +40,6 @@ def main():
     domain = args.domain
     probe_enabled = args.probe
     timeout = args.timeout
-    takeover = args.takeover
 
     # start tool timer
     start_time = time.time()
