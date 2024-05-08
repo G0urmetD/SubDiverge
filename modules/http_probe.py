@@ -46,7 +46,7 @@ def format_status(status_code):
     else:
         return f"{Fore.YELLOW}Unknown{Style.RESET_ALL}"
 
-def probe_subdomains(subdomains):
+def probe_subdomains(subdomains, timeout):
     table_data_http = []
     table_data_https = []
 
@@ -57,7 +57,7 @@ def probe_subdomains(subdomains):
             https_url = "https://" + domain
 
             # HTTP Probe
-            resp_http = requests.get(http_url, headers={'User-Agent': random.choice(USER_AGENTS)}, timeout=3)
+            resp_http = requests.get(http_url, headers={'User-Agent': random.choice(USER_AGENTS)}, timeout=timeout)
             http_status_code = resp_http.status_code
             http_ip = socket.gethostbyname(domain)
 
@@ -66,7 +66,7 @@ def probe_subdomains(subdomains):
             table_data_http.append(http_row)
 
             # HTTPS Probe
-            resp_https = requests.get(https_url, headers={'User-Agent': random.choice(USER_AGENTS)}, timeout=3)
+            resp_https = requests.get(https_url, headers={'User-Agent': random.choice(USER_AGENTS)}, timeout=timeout)
             https_status_code = resp_https.status_code
             https_ip = socket.gethostbyname(domain)
 
