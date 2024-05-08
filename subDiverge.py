@@ -29,34 +29,37 @@ def main():
     """
     print(Fore.CYAN + banner + Style.RESET_ALL)
     print(f"{Fore.YELLOW}[INFO]{Style.RESET_ALL} Author: G0urmetD (G0urmet)")
-    print(f"{Fore.YELLOW}[INFO]{Style.RESET_ALL} Version: 3.6.4")
+    print(f"{Fore.YELLOW}[INFO]{Style.RESET_ALL} Version: 3.7.1")
 
     # script arguments/parameters
     parser = argparse.ArgumentParser(description='Scan for subdomains and probe HTTP status codes.')
     parser.add_argument('-d', '--domain', dest='domain', required=True, help='Domain to scan')
+    parser.add_argument('-s', '--subs' ,dest='subs', action='store_true', help='Run Subdomain enumeration.')
     parser.add_argument('-p', '--probe' ,dest='probe', action='store_true', help='Enable HTTP probe')
     parser.add_argument('-t', '--timeout', dest='timeout', type=int, default=3, help='Timeout for HTTP probe')
     args = parser.parse_args()
     domain = args.domain
+    subs = args.subs
     probe_enabled = args.probe
     timeout = args.timeout
 
     # start tool timer
     start_time = time.time()
 
-    # starting subdomain enumeration
-    print(f"{Fore.CYAN}[INFO]{Style.RESET_ALL} Scanning for subdomains...")
-    time.sleep(2)
+    if subs:
+        # starting subdomain enumeration
+        print(f"{Fore.CYAN}[INFO]{Style.RESET_ALL} Scanning for subdomains...")
+        time.sleep(2)
 
-    # call subfinder logic module
-    run_subfinder(domain)
+        # call subfinder logic module
+        run_subfinder(domain)
 
-    # call assetfinder function
-    run_assetfinder(domain)
+        # call assetfinder function
+        run_assetfinder(domain)
 
-    # compare subdomain findings
-    # save compared subdomains in final .txt file
-    merge_subdomains("subs-subfinder.txt", "subs-assetfinder.txt", "subs-final.txt")
+        # compare subdomain findings
+        # save compared subdomains in final .txt file
+        merge_subdomains("subs-subfinder.txt", "subs-assetfinder.txt", "subs-final.txt")
     
     if probe_enabled:
         # loop through compared subdomain findings and run http/https probe & print out
