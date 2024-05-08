@@ -17,7 +17,7 @@ Another subdomain tool with HTTP/HTTPS probe. The Tool is designed to find subdo
 
 
 [INFO] Author: G0urmetD (G0urmet)
-[INFO] Version: 3.6
+[INFO] Version: 3.6.4
 usage: subDiverge.py [-h] -d DOMAIN [-p] [-t TIMEOUT]
 
 Scan for subdomains and probe HTTP status codes.
